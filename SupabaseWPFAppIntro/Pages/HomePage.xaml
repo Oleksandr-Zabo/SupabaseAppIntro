@@ -25,7 +25,9 @@
                            FontFamily="Inter" FontWeight="SemiBold" Foreground="Azure" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="EmailTextBlock" Text="Your email: " FontSize="14" Padding="0 0 0 10" 
                            FontFamily="Inter" FontWeight="Regular" Foreground="Azure"/>
-                <TextBlock><Image Source="Assets/Icon/logout.png" Width="48" Height="48" Cursor="Hand" MouseLeftButtonUp="LogoutImage_MouseLeftButtonUp" HorizontalAlignment="Center" /></TextBlock>
+               <Button Height="48" Click="Logout" HorizontalAlignment="Center">
+                   <Image Source="Assets/Icon/logout.png" Width="48"/>
+               </Button>
                 
                
             </StackPanel>
