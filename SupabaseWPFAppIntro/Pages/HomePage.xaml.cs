@@ -1,4 +1,5 @@
 using System.Net.Mime;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -11,8 +12,7 @@ public partial class HomePage : UserControl
         InitializeComponent();
         EmailTextBlock.Text = $"Your email: {email}";
     }
-
-    private void LogoutImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+    private void Logout(object sender, RoutedEventArgs e)
     {
         var mainWindow = (MainWindow)System.Windows.Application.Current.MainWindow;
         mainWindow?.MainWindowFrame.Navigate(new LoginPage());
