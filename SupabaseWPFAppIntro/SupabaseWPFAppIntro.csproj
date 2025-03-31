@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MaterialDesignThemes.MahApps" Version="5.2.2-ci942" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SupabaseAppIntro\SupabaseAppIntro.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Assets\Icon\logo.ico" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="Assets\Icon\logo.ico" />
+      <None Remove="Assets\Icon\logout.png" />
+      <Resource Include="Assets\Icon\logout.png" />
+    </ItemGroup>
+
+</Project>

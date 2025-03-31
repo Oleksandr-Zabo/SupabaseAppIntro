@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupabaseAppIntro", "SupabaseAppIntro\SupabaseAppIntro.csproj", "{5BE9A241-15C3-4CDF-A3E4-F6CE31B16235}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupabaseWPFAppIntro", "SupabaseWPFAppIntro\SupabaseWPFAppIntro.csproj", "{B6D41FC2-F25B-49B8-9480-493DD7DC92F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5BE9A241-15C3-4CDF-A3E4-F6CE31B16235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BE9A241-15C3-4CDF-A3E4-F6CE31B16235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BE9A241-15C3-4CDF-A3E4-F6CE31B16235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BE9A241-15C3-4CDF-A3E4-F6CE31B16235}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6D41FC2-F25B-49B8-9480-493DD7DC92F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6D41FC2-F25B-49B8-9480-493DD7DC92F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6D41FC2-F25B-49B8-9480-493DD7DC92F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6D41FC2-F25B-49B8-9480-493DD7DC92F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
