@@ -5,9 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SupabaseWPFAppIntro"
         mc:Ignorable="d"
-        Title="Desktop App" Height="450" Width="800" MinWidth="630" MinHeight="430"
+        Title="School Desktop App" Height="450" Width="800" MinWidth="630" MinHeight="430"
         WindowStartupLocation="CenterScreen" Icon="Assets/Icon/logo.ico"
-        WindowState="Maximized" Background="#212121"
+        WindowState="Maximized" 
         Loaded="MainWindow_OnLoaded">
-    <Frame x:Name="MainWindowFrame" NavigationUIVisibility="Hidden"></Frame>
+    <Window.Background>
+        <ImageBrush  ImageSource="../Assets/Images/loading.png"/>
+    </Window.Background>
+    <Grid>
+            <Frame x:Name="MainWindowFrame" NavigationUIVisibility="Hidden"></Frame>
+            
+        </Grid>
 </Window>

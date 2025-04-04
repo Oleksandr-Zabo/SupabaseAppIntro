@@ -14,8 +14,12 @@
         </LinearGradientBrush>
     </UserControl.Background>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
         
-        <materialDesign:Card  
+        <materialDesign:Card Grid.Column="0"
                              Margin="30" 
                              materialDesign:UniformCornerRadius="20"
                              materialDesign:ElevationAssist.Elevation="Dp16"
@@ -26,7 +30,7 @@
                 <TextBlock Text="Please sign up or log in to your account" FontSize="14" Padding="0 0 0 10" 
                            FontFamily="Inter" FontWeight="Regular" Foreground="Azure"/>
                 <DockPanel Margin="0 20 0 20">
-                    <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center"
+                    <materialDesign:PackIcon Kind="AccountSchool" VerticalAlignment="Center"
                                              Height="30" Width="30" Foreground="Azure" Margin="0 0 10 0"/>
                     <TextBox x:Name="LoginTextBox" FontSize="14" Padding="0 0 0 10"
                               materialDesign:HintAssist.Hint="Email"
@@ -67,7 +71,8 @@
                             Style="{StaticResource MaterialDesignRaisedButton}"/>
                 </WrapPanel>
             </StackPanel>
-            
         </materialDesign:Card>
+        
+        <Image Grid.Column="1" Stretch="UniformToFill" Source="../Assets/Images/register.png" />
     </Grid>
 </UserControl>

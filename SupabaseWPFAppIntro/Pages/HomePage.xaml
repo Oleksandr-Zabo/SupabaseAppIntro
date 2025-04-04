@@ -14,24 +14,51 @@
         </LinearGradientBrush>
     </UserControl.Background>
     <Grid>
-        
-        <materialDesign:Card  
-                             Margin="30" 
-                             materialDesign:UniformCornerRadius="20"
-                             materialDesign:ElevationAssist.Elevation="Dp16"
-                             MaxWidth="600" MaxHeight="300" MinHeight="200" MinWidth="400">
-            <StackPanel Orientation="Vertical" Margin="20">
-                <TextBlock Text="Welcome to the programme!" FontSize="18" Padding="0 10 0 10" 
-                           FontFamily="Inter" FontWeight="SemiBold" Foreground="Azure" HorizontalAlignment="Center"/>
-                <TextBlock x:Name="EmailTextBlock" Text="Your email: " FontSize="14" Padding="0 0 0 10" 
-                           FontFamily="Inter" FontWeight="Regular" Foreground="Azure"/>
-               <Button Height="100" Width="100" Click="Logout" HorizontalAlignment="Center">
-                   <Image Source="Assets/Icon/logout.png" Height="48" Width="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-               </Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Background="#1E1E1E" Margin="20" Padding="20" CornerRadius="10">
+            <StackPanel Orientation="Vertical">
+                <DockPanel Margin="0 10 0 10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Kind="AccountCircle" VerticalAlignment="Center"
+                                                 Height="30" Width="30" Foreground="White" Margin="10" Grid.Column="0" />
+                        <TextBox x:Name="StudentNameTextBox" MinWidth="100" Margin="10 0 0 0"
+                                 materialDesign:HintAssist.Hint="Student Name" Foreground="White"
+                                 Background="Transparent" Grid.Column="1" />
+                    </Grid>
+                </DockPanel>
+                <DockPanel Margin="0 10 0 10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Kind="School" VerticalAlignment="Center"
+                                                 Height="30" Width="30" Foreground="White" Margin="10" Grid.Column="0" />
+                        <TextBox x:Name="MarkTextBox" Margin="10 0 0 0"
+                                 materialDesign:HintAssist.Hint="Mark" Foreground="White"
+                                 Background="Transparent" Grid.Column="1" />
+                    </Grid>
+                </DockPanel>
+                <Button Content="Add" Width="100" Margin="0 10 0 5" Click="OnAddButtonClick"
+                        Style="{StaticResource MaterialDesignRaisedButton}" Foreground="White"
+                        Background="#1E1E1E" />
                 
-               
+                <DataGrid x:Name="StudentMarkDataGrid" AutoGenerateColumns="False" MinHeight="150" MaxHeight="400" Margin="0 20 0 0">
+                          Background="#1E1E1E" Foreground="White" BorderBrush="Transparent">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Student" Binding="{Binding StudentName}" Width="*"/>
+                        <DataGridTextColumn Header="Mark" Binding="{Binding MarkValue}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
-            
-        </materialDesign:Card>
+        </Border>
+        <Image Grid.Column="1" Stretch="UniformToFill" Source="../Assets/Images/fon.jpg" />
     </Grid>
 </UserControl>

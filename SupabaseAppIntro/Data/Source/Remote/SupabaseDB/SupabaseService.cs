@@ -1,6 +1,8 @@
 using Supabase.Gotrue;
         using Client = Supabase.Client;
-        
+        using SupabaseAppIntro.Models;
+        using static Supabase.Postgrest.Constants;
+
         namespace ConsoleSupabase.Data.Sourсe.Remote.SupabaseDB;
         
         public class SupabaseService
@@ -74,6 +76,110 @@ using Supabase.Gotrue;
                 {
                     SupabaseUser = _client.Auth.CurrentUser;
                     IsLoggedIn = true;
+                }
+            }
+            
+            public async Task Logout()
+            {
+                try
+                {
+                    await _client.Auth.SignOut();
+                    IsLoggedIn = false;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Logout() raise Exception: {ex.Message}");
+                }
+            }
+
+            
+            
+            public async Task<List<Student>> GetStudentsByUserId()
+            {
+                try
+                {
+                    var students = await _client.From<Student>()
+                        .Select("*").Filter("UserId", Operator.Equals, SupabaseUser?.Id).Get();
+                    return students.Models;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"GetStudentsByUserId() raised an exception: {ex.Message}");
+                }
+            }
+            
+            public async Task<List<Mark>> GetMarksByStudentId(int studentId)
+            {
+                try
+                {
+                    var marks = await _client.From<Mark>()
+                        .Select("*").Filter("StudentId", Operator.Equals, studentId).Get();
+                    return marks.Models;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"GetMarksByStudentId(int studentId) raised an exception: {ex.Message}");
+                }
+            }
+            
+            public async Task<bool> AddStudent(string name)
+            {
+                try
+                {
+                    var userId = int.TryParse(SupabaseUser?.Id, out var id) ? id : 0;
+            
+                    // Check if the student already exists
+                    var existingStudents = await _client.From<Student>()
+                        .Select("*")
+                        .Filter("Name", Operator.Equals, name)
+                        .Filter("UserId", Operator.Equals, userId)
+                        .Get();
+            
+                    if (existingStudents.Models.Count > 0)
+                    {
+                        // Student already exists
+                        return false;
+                    }
+            
+                    // Add the new student
+                    var student = new Student
+                    {
+                        Name = name,
+                        UserId = userId
+                    };
+                    var result = await _client.From<Student>().Insert(student);
+                    return result.ResponseMessage.StatusCode == System.Net.HttpStatusCode.Created;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"AddStudent(string name) raise Exception: {ex.Message}");
+                }
+            }
+            
+            public async Task<bool> AddMark(int mark, int studentId)
+            {
+                try
+                {
+                    var newMark = new Mark
+                    {
+                        mark = mark,
+                        StudentId = studentId
+                    };
+            
+                    var result = await _client.From<Mark>().Insert(newMark);
+            
+                    if (result.ResponseMessage.StatusCode == System.Net.HttpStatusCode.Created)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        throw new Exception($"Failed to add mark. Status code: {result.ResponseMessage.StatusCode}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"AddMark(int mark, int studentId) raised an exception: {ex.Message}");
                 }
             }
         }

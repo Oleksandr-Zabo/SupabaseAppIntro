@@ -17,13 +17,23 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Remove="Assets\Icon\logout.png" />
+      <None Remove="Assets\Images\fon-1.jfif" />
       <None Remove="Assets\Icon\logo.ico" />
+      <Resource Include="Assets\Icon\logo.ico" />
+      <None Remove="Assets\Images\fon.jpg" />
+      <Resource Include="Assets\Images\fon.jpg" />
+      <None Remove="Assets\Images\register.png" />
+      <Resource Include="Assets\Images\register.png" />
     </ItemGroup>
 
     <ItemGroup>
-      <Resource Include="Assets\Icon\logo.ico" />
-      <None Remove="Assets\Icon\logout.png" />
-      <Resource Include="Assets\Icon\logout.png" />
+      <Folder Include="Assets\Images\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Assets\Images\loading.png" />
+      <Resource Include="Assets\Images\loading.png" />
     </ItemGroup>
 
 </Project>
